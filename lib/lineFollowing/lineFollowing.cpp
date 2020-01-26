@@ -24,22 +24,42 @@ void initializeLineFollowSensors()
     pinMode(SENSOR_LEFT, INPUT);
     pinMode(SENSOR_MIDDLE, INPUT);
     pinMode(SENSOR_RIGHT, INPUT);
-
 }
 
-void readLeft()
+bool readLeft()
 {
-    digitalRead(SENSOR_LEFT);
+    if (digitalRead(SENSOR_LEFT) == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
-void readMiddle()
+bool readMiddle()
 {
-    digitalRead(SENSOR_MIDDLE);
+    if (digitalRead(SENSOR_MIDDLE) == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    } 
 }
 
-void readRight()
+bool readRight()
 {
-    digitalRead(SENSOR_RIGHT);
+    if (digitalRead(SENSOR_RIGHT) == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }  
 }
 
 void lineFollow()
@@ -53,17 +73,17 @@ void lineFollow()
     
         switch (tempMotorIncomingValue3)
         {
-            case Forward: //move servo right
+            case Forward:
             startLineFollow();
             resumeRemote();
             break;
 
-            case Back: //move servo left
+            case Back:
             stopLineFollow();
             resumeRemote();
             break;
 
-            case ZERO: //exit case
+            case ZERO:
             needToExit3 = true;
             break;
         }
@@ -72,7 +92,64 @@ void lineFollow()
 
 void startLineFollow()
 {
-
+    if (readLeft() == 1)
+    {
+        if (readMiddle() == 1)
+        {
+            if (readRight() == 1)
+            {
+                motorStop();
+                Serial.println("Motors Stopped");
+            }
+            else
+            {
+                goLeft();
+                Serial.println("Going Left");
+            } 
+        }
+        else
+        {
+            if (readRight() == 1)
+            {
+                motorStop();
+                Serial.println("Motors Stopped");
+            }
+            else
+            {
+                goLeft();
+                Serial.println("Going Left");
+            }
+        }   
+    }
+    else
+    {
+        if (readMiddle() == 1)
+        {
+            if (readRight() == 1)
+            {
+                goRight();
+                Serial.println("Going Right");
+            }
+            else
+            {
+                goForward();
+                Serial.println("Going Forward");
+            }
+        }
+        else
+        {
+            if (readRight() == 1)
+            {
+                goRight();
+                Serial.println("Going Right");
+            }
+            else
+            {
+                motorStop();
+                Serial.println("Motors Stopped");
+            } 
+        }  
+    }  
 }
 
 void stopLineFollow()

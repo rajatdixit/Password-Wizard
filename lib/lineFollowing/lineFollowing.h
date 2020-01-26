@@ -8,6 +8,6 @@ void lineFollow();
 void startLineFollow();
 void stopLineFollow();
 
-void readLeft();
-void readMiddle();
-void readRight();
+bool readLeft();
+bool readMiddle();
+bool readRight();
