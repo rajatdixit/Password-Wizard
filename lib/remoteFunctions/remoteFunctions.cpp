@@ -18,7 +18,7 @@ void initializeRemote()
 
 void waitForInput()
 {
-    delay(1000);
+    delay(500);
     while (!(irrecv.decode(&results)))
     {
         //keep waiting
