@@ -6,15 +6,15 @@
      Left, Right, Top Bottom  : Move car
      Digit 0                  : Reset Code
      Digit 1 pressed          : Move Car Mode
-     Digit 2 pressed          : Following People
+     Digit 2 pressed          : Servo Sweep
      Digit 3 pressed          : Line Follow Code
-     Digit 4 pressed          : Servo Sweep
-     Digit 5 pressed          : ?Blink LED? ?Car Turn Around?
+     Digit 4 pressed          : Object Follower
+     Digit 5 pressed          : 
      Digit 6 pressed          :
      Digit 7 pressed          :
      Digit 8 pressed          :
      Digit 9 pressed          :
-     Digit * and #            : Increse & decrease speed in Mode 1
+     Digit * and #            : 
 */
 #include "Arduino.h"
 #include "led.h"
@@ -23,6 +23,7 @@
 #include "motorFunctions.h"
 #include "servoFunctions.h"
 #include "lineFollowing.h"
+#include "objectFollower.h"
 
 //------DEFINITIONS-------//
 long unsigned int tempIncomingValue;
@@ -52,13 +53,13 @@ void loop()
     Serial.println ("Digit 1 pressed            : Move Car Mode");
     Serial.println ("Digit 2 pressed            : Servo Sweep");
     Serial.println ("Digit 3 pressed            : Line Follow Mode");
-    Serial.println ("Digit 4 pressed            : Following People");
-    Serial.println ("Digit 5 pressed            : ?Blink LED? ?Car Turn Around?");
-    Serial.println ("Digit 6 pressed            : Car insults you!");
-    Serial.println ("Digit 7 pressed            : You insult car!");
-    Serial.println ("Digit 8 pressed            : Car insults car");
-    Serial.println ("Digit 9 pressed            : You insult you");
-    Serial.println ("Digit * and # pressed      : Increase & decrease speed in Mode 1");
+    Serial.println ("Digit 4 pressed            : Object Follower");
+    Serial.println ("Digit 5 pressed            : ");
+    Serial.println ("Digit 6 pressed            : ");
+    Serial.println ("Digit 7 pressed            : ");
+    Serial.println ("Digit 8 pressed            : ");
+    Serial.println ("Digit 9 pressed            : ");
+    Serial.println ("Digit * and # pressed      : ");
     resumeRemote();
     break;
 
@@ -82,6 +83,14 @@ void loop()
     Serial.println("Press Up arrow to start line following");
     Serial.println("Press Down arrow to stop line following");
     lineFollow();
+    resumeRemote();
+    break;
+
+    case FOUR:
+    Serial.println("You are in Object Follower Mode");
+    Serial.println("Press Up arrow to start Following Objects");
+    Serial.println("Press Down arrow to stop Following Objects");
+    objectFollower();
     resumeRemote();
     break;
 

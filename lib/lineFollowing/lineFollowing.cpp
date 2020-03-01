@@ -13,6 +13,7 @@ unsigned long int tempMotorIncomingValue3;
 
 void lineFollow()
 {
+    initializeLineFollow();
     initializeRemote();
     needToExit3 = false;
     while (!needToExit3)
