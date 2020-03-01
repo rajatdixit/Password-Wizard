@@ -4,7 +4,7 @@
 
 long unsigned int tempMotorIncomingValue;
 int motorDelay = 100;
-int carSpeed = 200; //till 255
+int carSpeed = 125; //till 255
 bool needToExit;
 
 void initializeMotor()

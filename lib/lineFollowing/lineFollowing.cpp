@@ -114,8 +114,8 @@ void startLineFollow()
             {
                 if (readRight() == 1)
                 {
-                    motorStop();
-                    Serial.println("Motors Stopped");
+                    goLeft();
+                    Serial.println("Going Left");
                 }
                 else
                 {
@@ -148,8 +148,8 @@ void startLineFollow()
                 }
                 else
                 {
-                    motorStop();
-                    Serial.println("Motors Stopped");
+                    goForward();
+                    Serial.println("Going Forward");
                 }
             }
         }
