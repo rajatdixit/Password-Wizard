@@ -46,7 +46,9 @@ void initializeObjectFollower()
 
 void startObjectFollow()
 {
-    
+    defaultServo(); //default servo at 90 deg (straight)
+    disableServo(); 
+
 }
 
 void stopObjectFollow()
