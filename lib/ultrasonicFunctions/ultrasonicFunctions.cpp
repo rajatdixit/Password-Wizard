@@ -4,6 +4,13 @@
 #define ECHO A4
 #define TRIG A5
 
+void initializeUltrasonic()
+{
+    Serial.println("Initializing..");
+    pinMode(ECHO, INPUT);
+    pinMode(TRIG, OUTPUT);
+    Serial.println("Done");
+}
 //Ultrasonic distance measurement Sub function
 int getDistance() 
 {

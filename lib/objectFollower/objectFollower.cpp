@@ -3,6 +3,7 @@
 #include "remoteFunctions.h"
 #include "servoFunctions.h"
 #include "motorFunctions.h"
+#include "ultrasonicFunctions.h"
 
 bool needToExit4;
 unsigned long int tempMotorIncomingValue4;
@@ -42,13 +43,14 @@ void initializeObjectFollower()
     Serial.println("Motors Initialized..");
     initializeServo();
     Serial.println("Servo Initialized..");
+    initializeUltrasonic();
+    Serial.println("Ultrasonic Initialized");
 }
 
 void startObjectFollow()
 {
     defaultServo(); //default servo at 90 deg (straight)
     disableServo(); 
-
 }
 
 void stopObjectFollow()

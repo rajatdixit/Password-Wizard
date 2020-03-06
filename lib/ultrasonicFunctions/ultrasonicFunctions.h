@@ -2,4 +2,5 @@
 ///-----------------------Variable Definitions--------------------------///
 
 ///-----------------------Functions Declarations------------------------///
+void initializeUltrasonic();
 int getDistance();
