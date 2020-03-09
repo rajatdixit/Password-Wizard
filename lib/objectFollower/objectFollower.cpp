@@ -25,11 +25,6 @@ void objectFollower()
             resumeRemote();
             break;
 
-        case Back:
-            stopObjectFollow();
-            resumeRemote();
-            break;
-
         case ZERO:
             needToExit4 = true;
             break;
@@ -50,10 +45,25 @@ void initializeObjectFollower()
 void startObjectFollow()
 {
     defaultServo(); //default servo at 90 deg (straight)
-    disableServo(); 
+    disableServo();
+
+    while (getDistance() > 2)
+    {
+        if (getDistance() > 15)
+        {
+            motorStop();
+        }
+        else
+        {
+            goForward();
+            motorStop();
+        }
+    }
+    stopObjectFollow();
 }
 
 void stopObjectFollow()
 {
-
+    Serial.println("Object Following Stopped");
+    Serial.println("Press 0 to exit");
 }
