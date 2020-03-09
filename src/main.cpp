@@ -24,6 +24,7 @@
 #include "servoFunctions.h"
 #include "lineFollowing.h"
 #include "objectFollower.h"
+#include "ultrasonicFunctions.h"
 
 //------DEFINITIONS-------//
 long unsigned int tempIncomingValue;
@@ -89,7 +90,6 @@ void loop()
     case FOUR:
     Serial.println("You are in Object Follower Mode");
     Serial.println("Press Up arrow to start Following Objects");
-    Serial.println("Press Down arrow to stop Following Objects");
     objectFollower();
     resumeRemote();
     break;
