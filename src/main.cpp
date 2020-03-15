@@ -25,6 +25,7 @@
 #include "lineFollowing.h"
 #include "objectFollower.h"
 #include "ultrasonicFunctions.h"
+#include "lcdFunctions.h"
 
 //------DEFINITIONS-------//
 long unsigned int tempIncomingValue;
@@ -39,6 +40,9 @@ void setup()
   initializeMotor();
   initializeLED();
   blinkLED(10, 50);
+  initializeLCD();
+  printTestMessage();
+  blinkLED(10,50);
 }
 
 void loop()
