@@ -18,8 +18,22 @@
  * LCD A      pin to digital pin 27 - HIGH
  * LCD K      pin to digital pin 25 - LOW
 */
-
 ///-----------------------Variable Definitions--------------------------///
-
+#define VDD 53
+#define VO  51
+#define RS  49
+#define RW  47
+#define E   45
+#define D0  43
+#define D1  41
+#define D2  39
+#define D3  37
+#define D4  35
+#define D5  33
+#define D6  31
+#define D7  29
+#define A   27
+#define K   25
 ///-----------------------Functions Declarations------------------------///
 void initializeLCD();
+void printTestMessage();
